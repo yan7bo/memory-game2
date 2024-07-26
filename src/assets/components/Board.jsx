@@ -1,11 +1,22 @@
 import { useState, useEffect } from 'react'
 import Card from './card.jsx';
 import images from '../img/importcardimgs.js';
+import getPokes from "./fetchPokemon.js";
 import "../styles/Board.css";
 
 export default Board;
 
 const listOfCards = images.map((picture, index) => <
+    Card
+    picture={picture}
+    key={index}
+    number={index}
+    />
+);
+
+let pokes = await getPokes();
+
+const pokeCards = pokes.map((picture, index) => <
     Card
     picture={picture}
     key={index}
@@ -50,7 +61,7 @@ function Board() {
             setChoices([]);
         };
         
-        shuffle(listOfCards);
+        shuffle(pokeCards);
     };
 
     return (
@@ -60,9 +71,10 @@ function Board() {
                 <p>Current Score: {choices.length}</p>
                 <p>Top Score: {topScore}</p>
                 <div className="board-container">
-                    {listOfCards }
+                    {pokeCards }
                 </div>
             </div>
+            
         </>
         
     );
