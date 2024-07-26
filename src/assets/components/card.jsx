@@ -1,12 +1,12 @@
-import shibainu from '../img/01.jpg';
+import "../styles/Card.css";
 
 export default Card;
 
-function Card({picture}) {
+const CARD_SIZE = "100";
+
+function Card({picture, number}) {
     return (
-        <div>
-            <img src={picture} width="500" height="500"></img>
-        </div>
+        <div><img src={picture} data-number={number}></img></div>
     );
 };
 

@@ -1,8 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Card from './assets/components/card.jsx'
 import Board from './assets/components/Board.jsx';
 
 function App() {
